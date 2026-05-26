@@ -1,43 +1,141 @@
-/* RESET DE CONFIGURAÇÕES DO NAVEGADOR */
-* {
+/* Importando uma fonte moderna e limpa */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+:root {
+    --bg-color: #050112;
+    --primary-glow: #5a189a;
+    --secondary-glow: #ff00ff;
+    --accent-blue: #00d4ff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --text-color: #ffffff;
+}
+
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at center, #1a0b2e 0%, #050505 100%);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
-body {
-    background-image: url("assets/background\ site.jpg");
-    background-size: cover;
-    background-position: center;
-    /* background-color: rgb(7, 113, 242); */
+
+/* Efeito de luz de fundo para simular a cinematografia da série */
+body::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--primary-glow);
+    filter: blur(120px);
+    z-index: -1;
+    top: 10%;
+    left: 10%;
+    opacity: 0.5;
 }
 
 h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
     text-align: center;
-    color: rgb(255, 0, 0);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 30px 0;
+    
+    /* Configuração do Degradê */
+    background: linear-gradient(90deg, var(--accent-blue), var(--secondary-glow));
+    
+    /* A mágica para o texto ficar colorido */
+    background-clip: text; /* Versão padrão */
+    -webkit-background-clip: text; /* Versão para Chrome/Safari */
+    
+    /* Cor de preenchimento transparente para mostrar o fundo */
+    color: transparent; 
+    -webkit-text-fill-color: transparent;
+    
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
 }
 
-p {
-text-align: center;
-color: rgb(8, 215, 230);
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-a {
+label {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
     display: block;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+input[type="number"] {
+    background: var(--glass-bg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.2rem;
+    width: 100px;
     text-align: center;
-    text-decoration: none;
-    color: rgb(0, 0, 0);
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+input[type="number"]:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
 }
 
 button {
-    display: block;
-    padding: 0.4px 34px;
-    border-radius: 20px;
+    background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow));
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
-    margin: 20px auto;
-    background-color: aqua;
+    transition: 0.4s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+    letter-spacing: 1px;
+}
 
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--secondary-glow);
+    letter-spacing: 2px;
+}
 
+#resultadoTabuada {
+    margin-top: 40px;
+    padding: 30px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 250px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Estilização dos itens da tabuada (supondo que você use parágrafos ou divs no JS) */
+#resultadoTabuada p {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 5px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilização para o input não ter setas chatas */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
